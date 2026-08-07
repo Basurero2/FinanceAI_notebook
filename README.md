@@ -18,39 +18,51 @@
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | 1 | 58 | m | soltero | 2 | 0 | 37256 | 30000 | 51264.62 | 24132 | 1117.68 | 1.3760 | 0.8044 | 0.03 | RIESGOSO |
 
-*cambios*
+
+
 
 variables actualizadas
-- perfil_financiero
+- perfil_financiero :
+
+  **dataset actual** : Se asignaba de forma rígida mediante condicionales estáticos de IF/ELSE (lo que provocaba que el 58.33% fuera clasificado como RIESGOSO sintéticamente).
+
+  <img width="553" height="434" alt="image" src="https://github.com/user-attachments/assets/b4d5a30d-3d51-43c9-957f-c486e8bc59f7" />
+
+
+  **dataset propuesto** : Se recalculó mediante la segmentación no supervisada K-Means ($k=3$) considerando simultáneamente ingresos, gastos, deudas en tarjeta y ahorros reales, generando una distribución equilibrada (SALUDABLE: 48.03%, MODERADO: 23.63%, RIESGOSO: 28.33%).
+
+  <img width="559" height="429" alt="image" src="https://github.com/user-attachments/assets/5ebba581-9531-45bf-bd1f-667a3527d242" />
+
+
 
 variables agregadas
-- credito_utilizado : Recuperada de users.csv. Representa la deuda activa real en la tarjeta o línea de crédito.
-- monto_promedio_ahorro : Recuperada de users.csv. Representa el saldo real acumulado en las cuentas de ahorro del cliente.
-- ratio_gasto_ingreso : Ratio nuevo de flujo. Se calcula como '''gasto_total/ingreso_mensual'''. Reemplazó al antiguo nivel_endeudamiento
-- pct_credito_ocupado : Ratio nuevo de apalancamiento. Se calcula como '''credito_utilizado/textlinea_credito'''. Mide qué tan saturada está la tarjeta de crédito.
-- tasa_ahorro_real :Ratio nuevo de reserva. Se calcula como '''monto_promedio_ahorro/ingreso\_mensual'''. Reemplazó al antiguo rango_ahorro
+- credito_utilizado : Recuperada de ```users.csv```. Representa la deuda activa real en la tarjeta o línea de crédito.
+- monto_promedio_ahorro : Recuperada de ```users.csv```. Representa el saldo real acumulado en las cuentas de ahorro del cliente.
+- ratio_gasto_ingreso : Ratio nuevo de flujo. Se calcula como ```gasto_total/ingreso_mensual```. Reemplazó al antiguo nivel_endeudamiento
+- pct_credito_ocupado : Ratio nuevo de apalancamiento. Se calcula como ```credito_utilizado/textlinea_credito```. Mide qué tan saturada está la tarjeta de crédito.
+- tasa_ahorro_real :Ratio nuevo de reserva. Se calcula como ```monto_promedio_ahorro/ingreso_mensual```. Reemplazó al antiguo rango_ahorro
 
-bariables eliminadas :
-- nivel_endeudamiento
-- rango_ahorro
+variables eliminadas :
+- nivel_endeudamiento : Usaba una fórmula distorsionada que sumaba la línea de crédito al ingreso en el denominador ```gasto_total/(ingreso_mensual + linea_credito```.
+- rango_ahorro : Truncaba los valores negativos a cero con ```.clip(lower=0``` cuando el gasto superaba al ingreso, colapsando al 52.1% de la población a 0.0.
 
 
 
 ## Comparativa entre modelo actual y propuesto (perfil financiero)
 
-Haciendo una prueba para comprobar que el modelo actual de perfil financiero presenta data leake debido a una incorrecta categorizacion en el proceso de depuracion de dataset clientes
+Haciendo una prueba para comprobar que el modelo actual de perfil financiero presenta Data Leakage o Overfitting MEMORÍSTICO debido a una sesgo de categorización sintética por reglas estáticas (IF/ELSE) en el dataset clientes
 
 ### Causas y evidencias
-- mas informacion en archivo auditoria_modelos.md
+- mas información en el archivo ```auditoria_entrenamiento_notebook.md```
 
 #### modelo actual
 
-- precision del 100% perfecto
+- precisión del 100% perfecto
 
 <img width="936" height="227" alt="image" src="https://github.com/user-attachments/assets/7d276f15-ccc6-4983-8e6e-1c874a619fb9" />
 
 
-- tabla de confusion diagonal
+- matriz de confusión diagonal
 
 <img width="664" height="556" alt="image" src="https://github.com/user-attachments/assets/2394b142-d185-4365-ae64-9a1a9126fe63" />
 
@@ -59,11 +71,9 @@ Haciendo una prueba para comprobar que el modelo actual de perfil financiero pre
 - precision 96.33%
 <img width="940" height="232" alt="image" src="https://github.com/user-attachments/assets/4e9a5ba3-2352-423f-bdb9-1c128fb225a8" />
 
-- tabla de confusion no diagonal
+- matriz de confusión no diagonal
 
 <img width="742" height="590" alt="image" src="https://github.com/user-attachments/assets/af6910da-baee-449a-810c-456c69ba98ba" />
-
-
 
 
 
@@ -88,6 +98,10 @@ Haciendo una prueba para comprobar que el modelo actual de perfil financiero pre
 <img width="409" height="417" alt="image" src="https://github.com/user-attachments/assets/a79887de-6432-4ace-8bca-465e45cc0067" />
 
 
-### resultado
+#### resultado
 El modelo actual dio un resultado de RIESGOSO
 El modelo propuesto dio un resultado de SALUDABLE con precision 57.5%
+
+
+
+
