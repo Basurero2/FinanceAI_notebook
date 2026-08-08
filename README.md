@@ -46,8 +46,8 @@ variables agregadas
 - tasa_ahorro_real (FLOAT) :Ratio nuevo de reserva. Se calcula como ```monto_promedio_ahorro/ingreso_mensual```. Reemplazó al antiguo rango_ahorro
 
 variables eliminadas :
-- nivel_endeudamiento : Usaba una fórmula distorsionada que sumaba la línea de crédito al ingreso en el denominador ```gasto_total/(ingreso_mensual + linea_credito```.
-- rango_ahorro : Truncaba los valores negativos a cero con ```.clip(lower=0``` cuando el gasto superaba al ingreso, colapsando al 52.1% de la población a 0.0.
+- nivel_endeudamiento : Usaba una fórmula distorsionada que sumaba la línea de crédito al ingreso en el denominador ```gasto_total/(ingreso_mensual + linea_credito)```.
+- rango_ahorro : Truncaba los valores negativos a cero con ```.clip(lower=0)``` cuando el gasto superaba al ingreso, colapsando al 52.1% de la población a 0.0.
 
 
 
@@ -56,7 +56,7 @@ variables eliminadas :
 Haciendo una prueba para comprobar que el modelo actual de perfil financiero presenta Data Leakage o Overfitting MEMORÍSTICO debido a una sesgo de categorización sintética por reglas estáticas (IF/ELSE) en el dataset clientes
 
 ### Causas y evidencias
-- mas información en el archivo ```auditoria_entrenamiento_notebook.md```
+- mas información en el archivo [auditoria_entrenamiento_notebook.md](auditoria_entrenamiento_notebook.md")
 
 #### modelo actual
 
@@ -68,6 +68,7 @@ Haciendo una prueba para comprobar que el modelo actual de perfil financiero pre
 - matriz de confusión diagonal
 
 <img width="664" height="556" alt="image" src="https://github.com/user-attachments/assets/2394b142-d185-4365-ae64-9a1a9126fe63" />
+
 
 #### modelo propuesto
 
@@ -101,17 +102,31 @@ Haciendo una prueba para comprobar que el modelo actual de perfil financiero pre
 <img width="409" height="417" alt="image" src="https://github.com/user-attachments/assets/a79887de-6432-4ace-8bca-465e45cc0067" />
 
 
-#### resultado
-- El modelo actual dio un resultado de RIESGOSO
-- El modelo propuesto dio un resultado de SALUDABLE con precision 57.5%
+#### Resultado
+- El modelo actual dio un resultado de RIESGOSO :
 
+```
+ ¿Por qué falló el Modelo Anterior?
+ Como la transformación previa aplicaba la regla estricta (25,000 - 26,000).clip(lower=0), el rango_ahorro dio 0.0.
+ El modelo anterior, al haber memorizado la regla IF rango_ahorro <= 0.10 THEN RIESGOSO, calificó al cliente con 100% de riesgo con ceguera total, ignorando que el cliente tenía  S/. 80k de línea y casi nada de deuda.
+```
+
+- El modelo propuesto dio un resultado de SALUDABLE con precision 57.5% :
+
+```
+¿Por qué el Modelo Actual acertó?
+El modelo actual calculó automáticamente los ratios multidimensionales:
+Detectó que la deuda en la tarjeta es bajísima (pct_credito_ocupado = 3.7%).
+Rescató que el cliente posee un fondo de ahorro real (tasa_ahorro_real = 24%).
+Entendió que aunque el gasto del mes fue S/. 26k, el cliente es solvente y tiene respaldo patrimonial, clasificándolo como SALUDABLE.
+```
 
 ### NOTA
-Estas capturas del modelo propuesto son el resultado de una combinacion aleatoria de hiperparametros, por lo que al ejecutar el notebook obtegamos diferentes score en el entrenamiento y prueba en cada sesion, para ello se debe ajustar (Fine-Tuning) que hiperparametros usar meidante varias pruebas y cual es la mejor combinacion para usar
+Estas capturas del modelo propuesto son el resultado de una combinacion aleatoria de hiperparametros, por lo que al ejecutar el notebook obtegamos diferentes score en el entrenamiento y prueba en cada sesion, para ello se debe ajustar (Fine-Tuning) que hiperparametros usar mediante varias pruebas y cual es la mejor combinacion para usar
 
 
 - aqui se muestran la combinacion aleatoria entre diferentes valores para el modelo propuesto
-<img width="420" height="152" alt="image" src="https://github.com/user-attachments/assets/1f2b770e-64a8-49fd-b7bc-ba294d337095" />
+<img width="420" height="152" alt="image" src="https://github.com/user-attachments/assets/1f2b770e-64a8-49fd-b7bc-ba294d337095"/>
 
 - una vez se haya probado e identificado los hiperparametros para el modelo utilizamos ```RandomForestClassifier``` por ejemplo este script en el punto 4 se especifican los hiperparametros
 
@@ -196,11 +211,11 @@ preprocessor = ColumnTransformer(
 best_model = Pipeline(steps=[
     ('preprocessor', preprocessor),
     ('classifier', RandomForestClassifier(
-        n_estimators=300,          # De la imagen
-        max_depth=None,           # Crecimiento libre (De la imagen)
-        min_samples_split=2,      # De la imagen
-        min_samples_leaf=1,       # De la imagen
-        max_features='log2',      # De la imagen
+        n_estimators=300,         
+        max_depth=None,           # Crecimiento libre
+        min_samples_split=2,      
+        min_samples_leaf=1,       
+        max_features='log2',      
         random_state=42
     ))
 ])
@@ -242,6 +257,7 @@ print("\n💾 Modelo exportado exitosamente como 'modelo_perfil_financiero_rf.pk
 ## Probamos 3 notebooks con el modelo propuesto (dataset, entrenamiento, prueba)
 
 **prueba** 
+- resultado esperado : Saludable
 
 ```
 {
@@ -271,16 +287,16 @@ print("\n💾 Modelo exportado exitosamente como 'modelo_perfil_financiero_rf.pk
 
 - score y hiperparametros entrenamiento
 
-<img width="913" height="204" alt="image" src="https://github.com/user-attachments/assets/6f5c7517-1b56-475e-80f2-087a9de9acb9" />
+ <img width="913" height="204" alt="image" src="https://github.com/user-attachments/assets/6f5c7517-1b56-475e-80f2-087a9de9acb9" />
 
 
-{ matriz confusion
+-  matriz confusion
 
-<img width="743" height="584" alt="image" src="https://github.com/user-attachments/assets/95bc15e8-f551-4bed-a745-131f8945e3ae" />
+ <img width="743" height="584" alt="image" src="https://github.com/user-attachments/assets/95bc15e8-f551-4bed-a745-131f8945e3ae" />
 
 - prueba
 
-<img width="443" height="105" alt="image" src="https://github.com/user-attachments/assets/f6c04728-7316-442a-8f90-9d8f52324f63" />
+ <img width="443" height="105" alt="image" src="https://github.com/user-attachments/assets/f6c04728-7316-442a-8f90-9d8f52324f63" />
 
 
 
