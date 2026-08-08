@@ -40,12 +40,6 @@
 
 
 
-
-   recategorizacion de perfil_financiero con condicional rigido
-
-
-
-
 <br>
 
 <p align="center">
@@ -54,14 +48,7 @@
 </p>
 
 
-   variables mas importantes
 
-<br>
- 
-  <img width="847" height="454" alt="image" src="https://github.com/user-attachments/assets/0cee5a98-81f9-47f9-937d-afc9fb5c27bc" />
-
-<br>
-<br>
 
    distribucion de las categorias de perfil_financiero
 
@@ -74,14 +61,6 @@
 
   **dataset propuesto** : Se recalculó mediante la segmentación no supervisada K-Means ($k=3$) considerando simultáneamente ingresos, gastos, deudas en tarjeta y ahorros reales, generando una distribución equilibrada (SALUDABLE: 45.57%, MODERADO: 23.63%, RIESGOSO: 30.80%).
 
-   variables mas importantes
-
-<br>
-
-  <img width="1019" height="556" alt="image" src="https://github.com/user-attachments/assets/9bbe6597-ccbc-4e7f-9f16-732a39193e93" />
-
-<br>
-<br>
 
 
    distribucion de las categorias de perfil_financiero
@@ -95,17 +74,39 @@
 <br>
 
 
-variables agregadas
+**variables agregadas**
 - credito_utilizado (FLOAT) : Recuperada de ```users.csv```. Representa la deuda activa real en la tarjeta o línea de crédito.
 - monto_promedio_ahorro (FLOAT) : Recuperada de ```users.csv```. Representa el saldo real acumulado en las cuentas de ahorro del cliente.
 - ratio_gasto_ingreso (FLOAT) : Ratio nuevo de flujo. Se calcula como ```gasto_total/ingreso_mensual```. Reemplazó al antiguo nivel_endeudamiento
 - pct_credito_ocupado (FLOAT) : Ratio nuevo de apalancamiento. Se calcula como ```credito_utilizado/textlinea_credito```. Mide qué tan saturada está la tarjeta de crédito.
 - tasa_ahorro_real (FLOAT) :Ratio nuevo de reserva. Se calcula como ```monto_promedio_ahorro/ingreso_mensual```. Reemplazó al antiguo rango_ahorro
 
-variables eliminadas :
+**variables eliminadas**
 - nivel_endeudamiento : Usaba una fórmula distorsionada que sumaba la línea de crédito al ingreso en el denominador ```gasto_total/(ingreso_mensual + linea_credito)```.
 - rango_ahorro : Truncaba los valores negativos a cero con ```.clip(lower=0)``` cuando el gasto superaba al ingreso, colapsando al 52.1% de la población a 0.0.
 
+
+### variables mas importantes
+
+**datatset actual**
+
+<br>
+ 
+  <img width="847" height="454" alt="image" src="https://github.com/user-attachments/assets/0cee5a98-81f9-47f9-937d-afc9fb5c27bc" />
+
+<br>
+<br>
+
+**dataset propuesto**
+
+   variables mas importantes
+
+<br>
+
+  <img width="1019" height="556" alt="image" src="https://github.com/user-attachments/assets/9bbe6597-ccbc-4e7f-9f16-732a39193e93" />
+
+<br>
+<br>
 
 
 ## Comparativa entre modelo actual y propuesto (perfil financiero)
