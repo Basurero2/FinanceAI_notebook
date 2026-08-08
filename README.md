@@ -1,4 +1,6 @@
 
+# Propuesta para el equipo Data Scientist - Modelo B (Perfil financiero)
+
 ## Comparativa de dataset clientes actual y propuesto
 
 ### Variables
