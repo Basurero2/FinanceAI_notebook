@@ -23,23 +23,28 @@
 
 
 
-variables actualizadas
+#### variables actualizadas
+
 - perfil_financiero :
+
 
   **dataset actual** : Se asignaba de forma rígida mediante condicionales estáticos de IF/ELSE (lo que provocaba que el 58.33% fuera clasificado como RIESGOSO sintéticamente).
 
-  - recategorización masiva a "RIESGOSO" debido a un "redondeo" a 0 si el ```gasto_total``` era mayor a su ```ingreso_mensual``` (omitiendo otras variables para el analisis) logrando que cayera en la condición ```IF rango_ahorro <= 0.10 THEN RIESGOSO```
+   recategorización masiva a "RIESGOSO" debido a un "redondeo" a 0 si el ```gasto_total``` era mayor a su ```ingreso_mensual``` (omitiendo otras variables para el analisis) logrando que cayera en la condición ```IF rango_ahorro <= 0.10 THEN RIESGOSO```
 
-<br>
+
 
 <p align="center">
   <img width="291" height="320" alt="image" src="https://github.com/user-attachments/assets/62c33277-b829-48fe-af25-42829d9d3490" />
 </p>
 
 
-<br>
 
-  - recategorizacion de perfil_financiero con condicional rigido
+
+   recategorizacion de perfil_financiero con condicional rigido
+
+
+
 
 <br>
 
@@ -49,7 +54,7 @@ variables actualizadas
 </p>
 
 
-  - variables mas importantes
+   variables mas importantes
 
 <br>
  
@@ -58,7 +63,7 @@ variables actualizadas
 <br>
 <br>
 
-  - distribucion de las categorias de perfil_finaciero
+   distribucion de las categorias de perfil_financiero
 
  <br>
     
@@ -69,7 +74,7 @@ variables actualizadas
 
   **dataset propuesto** : Se recalculó mediante la segmentación no supervisada K-Means ($k=3$) considerando simultáneamente ingresos, gastos, deudas en tarjeta y ahorros reales, generando una distribución equilibrada (SALUDABLE: 45.57%, MODERADO: 23.63%, RIESGOSO: 30.80%).
 
-  - variables mas importantes
+   variables mas importantes
 
 <br>
 
@@ -79,7 +84,7 @@ variables actualizadas
 <br>
 
 
-  - distribucion de las categorias de perfil_financiero
+   distribucion de las categorias de perfil_financiero
 
 <br>
 
