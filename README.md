@@ -30,38 +30,64 @@ variables actualizadas
 
   - recategorización masiva a "RIESGOSO" debido a un "redondeo" a 0 si el ```gasto_total``` era mayor a su ```ingreso_mensual``` (omitiendo otras variables para el analisis) logrando que cayera en la condición ```IF rango_ahorro <= 0.10 THEN RIESGOSO```
 
+<br>
+
+<p align="center">
   <img width="291" height="320" alt="image" src="https://github.com/user-attachments/assets/62c33277-b829-48fe-af25-42829d9d3490" />
+</p>
 
 
+<br>
 
-  - recategorizacion de perfil_financiero con condicional rigido 
+  - recategorizacion de perfil_financiero con condicional rigido
 
+<br>
+
+<p align="center">
   <img width="314" height="320" alt="image" src="https://github.com/user-attachments/assets/e08d28e7-153d-4838-b29a-e8cc301cb651" />
 
+</p>
+
+
   - variables mas importantes
+
+<br>
  
   <img width="847" height="454" alt="image" src="https://github.com/user-attachments/assets/0cee5a98-81f9-47f9-937d-afc9fb5c27bc" />
 
+<br>
+<br>
 
   - distribucion de las categorias de perfil_finaciero
- 
+
+ <br>
     
   <img width="553" height="434" alt="image" src="https://github.com/user-attachments/assets/b4d5a30d-3d51-43c9-957f-c486e8bc59f7" />
 
+<br>
+<br>
 
   **dataset propuesto** : Se recalculó mediante la segmentación no supervisada K-Means ($k=3$) considerando simultáneamente ingresos, gastos, deudas en tarjeta y ahorros reales, generando una distribución equilibrada (SALUDABLE: 45.57%, MODERADO: 23.63%, RIESGOSO: 30.80%).
 
   - variables mas importantes
 
+<br>
+
   <img width="1019" height="556" alt="image" src="https://github.com/user-attachments/assets/9bbe6597-ccbc-4e7f-9f16-732a39193e93" />
 
+<br>
+<br>
 
-  - distribucion de las categorias de perfil_finaciero
+
+  - distribucion de las categorias de perfil_financiero
+
+<br>
 
   <img width="488" height="376" alt="image" src="https://github.com/user-attachments/assets/15b99e0e-cc48-401d-a096-0832c88552c4" />
 
 
-
+<br>
+<br>
 
 
 variables agregadas
@@ -90,8 +116,12 @@ Haciendo una prueba para comprobar que el modelo actual de perfil financiero pre
 
 <img width="936" height="227" alt="image" src="https://github.com/user-attachments/assets/7d276f15-ccc6-4983-8e6e-1c874a619fb9" />
 
+<br>
+<br>
 
 - matriz de confusión diagonal
+
+<br>
 
 <img width="664" height="556" alt="image" src="https://github.com/user-attachments/assets/2394b142-d185-4365-ae64-9a1a9126fe63" />
 
@@ -99,9 +129,17 @@ Haciendo una prueba para comprobar que el modelo actual de perfil financiero pre
 #### modelo propuesto
 
 - precision 96.33%
+
+<br>
+
 <img width="940" height="232" alt="image" src="https://github.com/user-attachments/assets/4e9a5ba3-2352-423f-bdb9-1c128fb225a8" />
 
+<br>
+<br>
+
 - matriz de confusión no diagonal
+
+<br>
 
 <img width="742" height="590" alt="image" src="https://github.com/user-attachments/assets/af6910da-baee-449a-810c-456c69ba98ba" />
 
@@ -114,6 +152,8 @@ Haciendo una prueba para comprobar que el modelo actual de perfil financiero pre
 #### modelo actual
 - usando datos procesados
 
+<br>
+
 <img width="546" height="411" alt="image" src="https://github.com/user-attachments/assets/de7c9905-7da3-4af4-b73e-9e7115cfd28f" />
 
 
@@ -121,9 +161,16 @@ Haciendo una prueba para comprobar que el modelo actual de perfil financiero pre
 #### modelo propuesto
 - usando datos crudos
 
+<br>
+
 <img width="636" height="473" alt="image" src="https://github.com/user-attachments/assets/c7240524-0008-4722-8862-44f4dfe63693" />
 
+<br>
+<br>
+
 - usando datos procesados
+
+<br>
 
 <img width="409" height="417" alt="image" src="https://github.com/user-attachments/assets/a79887de-6432-4ace-8bca-465e45cc0067" />
 
@@ -152,7 +199,13 @@ Estas capturas del modelo propuesto son el resultado de una combinacion aleatori
 
 
 - aqui se muestran la combinacion aleatoria entre diferentes valores para el modelo propuesto
+
+<br>
+
 <img width="420" height="152" alt="image" src="https://github.com/user-attachments/assets/1f2b770e-64a8-49fd-b7bc-ba294d337095"/>
+
+<br>
+<br>
 
 - una vez se haya probado e identificado los hiperparametros para el modelo utilizamos ```RandomForestClassifier``` por ejemplo este script en el punto 4 se especifican los hiperparametros
 
@@ -308,19 +361,34 @@ print("\n💾 Modelo exportado exitosamente como 'modelo_perfil_financiero_rf.pk
 
 - dataset clientes
 
+<br>
+
 <img width="358" height="119" alt="image" src="https://github.com/user-attachments/assets/4c7d5a39-5166-4245-a926-e6041f013491" />
 
+<br>
+<br>
 
 - score y hiperparametros entrenamiento
 
+<br>
+
  <img width="913" height="204" alt="image" src="https://github.com/user-attachments/assets/6f5c7517-1b56-475e-80f2-087a9de9acb9" />
 
+<br>
+<br>
 
 -  matriz confusion
 
+<br>
+
  <img width="743" height="584" alt="image" src="https://github.com/user-attachments/assets/95bc15e8-f551-4bed-a745-131f8945e3ae" />
 
+<br>
+<br>
+
 - prueba
+
+<br>
 
  <img width="443" height="105" alt="image" src="https://github.com/user-attachments/assets/f6c04728-7316-442a-8f90-9d8f52324f63" />
 
@@ -330,19 +398,35 @@ print("\n💾 Modelo exportado exitosamente como 'modelo_perfil_financiero_rf.pk
 
 - dataset clientes
 
+<br>
+
 <img width="385" height="125" alt="image" src="https://github.com/user-attachments/assets/ce2d94ff-9da5-465b-bdc1-02164c39835e" />
 
+<br>
+<br>
 
 - score y hiperparametros entrenamiento
 
+<br>
+
 <img width="928" height="212" alt="image" src="https://github.com/user-attachments/assets/3c5b62a6-24cc-4dd9-9659-071df108480d" />
+
+<br>
+<br>
 
 
 - matriz confusion
 
+<br>
+
 <img width="743" height="584" alt="image" src="https://github.com/user-attachments/assets/8e93ce80-aa09-42c8-9e79-f7cf6188926b" />
 
+<br>
+<br>
+
 - prueba
+
+<br>
 
 <img width="394" height="96" alt="image" src="https://github.com/user-attachments/assets/0f227939-6e4c-4869-b8cb-042af6894fd5" />
 
@@ -352,21 +436,37 @@ print("\n💾 Modelo exportado exitosamente como 'modelo_perfil_financiero_rf.pk
 
 - dataset clientes
 
+<br>
+
 <img width="367" height="121" alt="image" src="https://github.com/user-attachments/assets/b986923e-a68e-4a84-a0be-d3f93413b0e3" />
 
+<br>
+<br>
 
 - score y hiperparametros entrenamiento
 
+<br>
+
 <img width="920" height="208" alt="image" src="https://github.com/user-attachments/assets/ae5d4ed6-6385-4ab9-ae06-4b412f142051" />
 
+<br>
+<br>
 
 - matriz confusion
 
+<br>
+
 <img width="743" height="584" alt="image" src="https://github.com/user-attachments/assets/d784ac02-fa2a-4050-b6dc-f823f3e74878" />
+
+<br>
+<br>
 
 - prueba
 
+<br>
+
 <img width="388" height="97" alt="image" src="https://github.com/user-attachments/assets/136c87e5-2305-4ca8-a443-afde8a6712ca" />
+
 
 
 ### conclusiones de estos 3 notebooks
