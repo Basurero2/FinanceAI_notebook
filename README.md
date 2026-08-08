@@ -34,18 +34,14 @@
 
 
 
-<p align="center">
+
   <img width="291" height="320" alt="image" src="https://github.com/user-attachments/assets/62c33277-b829-48fe-af25-42829d9d3490" />
-</p>
 
 
 
-<br>
 
-<p align="center">
   <img width="314" height="320" alt="image" src="https://github.com/user-attachments/assets/e08d28e7-153d-4838-b29a-e8cc301cb651" />
 
-</p>
 
 
 
@@ -59,7 +55,7 @@
 <br>
 <br>
 
-  **dataset propuesto** : Se recalculó mediante la segmentación no supervisada K-Means ($k=3$) considerando simultáneamente ingresos, gastos, deudas en tarjeta y ahorros reales, generando una distribución equilibrada (SALUDABLE: 45.57%, MODERADO: 23.63%, RIESGOSO: 30.80%).
+   **dataset propuesto** : Se recalculó mediante la segmentación no supervisada K-Means ($k=3$) considerando simultáneamente ingresos, gastos, deudas en tarjeta y ahorros reales, generando una distribución equilibrada (SALUDABLE: 45.57%, MODERADO: 23.63%, RIESGOSO: 30.80%).
 
 
 
