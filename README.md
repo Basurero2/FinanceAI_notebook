@@ -45,15 +45,13 @@
 
 
 
-
    distribucion de las categorias de perfil_financiero
 
- <br>
     
   <img width="553" height="434" alt="image" src="https://github.com/user-attachments/assets/b4d5a30d-3d51-43c9-957f-c486e8bc59f7" />
 
-<br>
-<br>
+
+
 
    **dataset propuesto** : Se recalculó mediante la segmentación no supervisada K-Means ($k=3$) considerando simultáneamente ingresos, gastos, deudas en tarjeta y ahorros reales, generando una distribución equilibrada (SALUDABLE: 45.57%, MODERADO: 23.63%, RIESGOSO: 30.80%).
 
@@ -61,7 +59,7 @@
 
    distribucion de las categorias de perfil_financiero
 
-<br>
+
 
   <img width="488" height="376" alt="image" src="https://github.com/user-attachments/assets/15b99e0e-cc48-401d-a096-0832c88552c4" />
 
