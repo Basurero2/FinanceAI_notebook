@@ -106,7 +106,7 @@ Haciendo una prueba para comprobar que el modelo actual de perfil financiero pre
 - El modelo actual dio un resultado de RIESGOSO :
 
 ```
- ¿Por qué falló el Modelo Anterior?
+ ¿Por qué falló el Modelo?
  Como la transformación previa aplicaba la regla estricta (25,000 - 26,000).clip(lower=0), el rango_ahorro dio 0.0.
  El modelo anterior, al haber memorizado la regla IF rango_ahorro <= 0.10 THEN RIESGOSO, calificó al cliente con 100% de riesgo con ceguera total, ignorando que el cliente tenía  S/. 80k de línea y casi nada de deuda.
 ```
@@ -114,7 +114,7 @@ Haciendo una prueba para comprobar que el modelo actual de perfil financiero pre
 - El modelo propuesto dio un resultado de SALUDABLE con precision 57.5% :
 
 ```
-¿Por qué el Modelo Actual acertó?
+¿Por qué el Modelo acertó?
 El modelo actual calculó automáticamente los ratios multidimensionales:
 Detectó que la deuda en la tarjeta es bajísima (pct_credito_ocupado = 3.7%).
 Rescató que el cliente posee un fondo de ahorro real (tasa_ahorro_real = 24%).
