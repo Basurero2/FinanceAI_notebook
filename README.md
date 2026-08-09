@@ -68,16 +68,44 @@
 <br>
 
 
-**variables agregadas**
+#### variables agregadas
 - credito_utilizado (FLOAT) : Recuperada de ```users.csv```. Representa la deuda activa real en la tarjeta o línea de crédito.
 - monto_promedio_ahorro (FLOAT) : Recuperada de ```users.csv```. Representa el saldo real acumulado en las cuentas de ahorro del cliente.
+```
+Esta variable es acumulativa y se calcula de la siguiente manera
+- al inicio del registro de un usuario se le pedirá cuanto de ahorro tiene inicialmente
+- Cuando se use el perfil financiero (modelo)
+1. A fin de mes : el ahorro del mes actual se hallara : ingreso_mensual - gasto_total, donde el gasto total es la suma de dinero real (debito o efectivo o transferencia) + credito utilizado y luego se promediara con los ahorros anteriores : (ahorro_1 + ahorro_2 + ahorro_3_actual)/3 y ese resultado sera el monto_promedio_ahorro
+2. En periodos en el mes por ejemplo en la semana 2 : aqui se usa lo mismo pero a diferencia que solo se usara el dinero real para hallar el ahorro actual porque vamos a considerar que el usuario paga su deuda de uso de credito cada fin de mes por lo que en estas periodos (<30 dias) esa dinero aun no se desembolsa, y luego se promedia con los ahorros anteriores (meses) obteniendo monto_promedio_ahorro
+```
+
 - ratio_gasto_ingreso (FLOAT) : Ratio nuevo de flujo. Se calcula como ```gasto_total/ingreso_mensual```. Reemplazó al antiguo nivel_endeudamiento
 - pct_credito_ocupado (FLOAT) : Ratio nuevo de apalancamiento. Se calcula como ```credito_utilizado/linea_credito```. Mide qué tan saturada está la tarjeta de crédito.
 - tasa_ahorro_real (FLOAT) :Ratio nuevo de reserva. Se calcula como ```monto_promedio_ahorro/ingreso_mensual```. Reemplazó al antiguo rango_ahorro
 
-**variables eliminadas**
+#### variables eliminadas
 - nivel_endeudamiento : Usaba una fórmula distorsionada que sumaba la línea de crédito al ingreso en el denominador ```gasto_total/(ingreso_mensual + linea_credito)```.
 - rango_ahorro : Truncaba los valores negativos a cero con ```.clip(lower=0)``` cuando el gasto superaba al ingreso, colapsando al 52.1% de la población a 0.0.
+
+### Variables crudas
+Estas variables serán enviadas por el equipo de backend
+
+```
+    "edad": 25,                       # int: Edad del cliente
+    "sexo": "f",                      # str: 'f' o 'm'
+    "estado_civil": "soltero",        # str: 'soltero', 'casado', 'divorciado', etc.
+    "numero_hijos": 0,                # int: Cantidad de hijos
+    "empleo_formal": 1,               # int (binario): 1 = Formal, 0 = Informal
+    "ingreso_mensual": 20000.0,       # float: Ingreso total mensual en Soles (S/.)
+    "linea_credito": 10000.0,         # float: Línea de crédito total aprobada (S/.)
+    "gasto_total": 8000.0,            # float: Gasto total acumulado en el mes (S/.)
+    "credito_utilizado": 2500.0,      # float: Deuda actual consumida en la tarjeta (S/.)
+    "monto_promedio_ahorro": 5000.0   # float: Fondo guardado promediado en cuenta de ahorros (S/.)
+```
+
+
+
+
 
 
 ### variables mas importantes
@@ -472,4 +500,3 @@ print("\n💾 Modelo exportado exitosamente como 'modelo_perfil_financiero_rf.pk
 ### conclusiones de estos 3 notebooks
 Se nota ligeras variaciones en los scores de cada entrenamiento esto es debido a la combinacion aleatoria en los hiperparametros y la distribución que realiza K-means que como se muestra en seccion dataset de cada notebook varia ligeramente
 - el notebook 2 tuvo un mejor modelo donde su prueba obtuvo un score de 59%
-
