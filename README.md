@@ -87,20 +87,55 @@ Esta variable es acumulativa y se calcula de la siguiente manera
 - nivel_endeudamiento : Usaba una fórmula distorsionada que sumaba la línea de crédito al ingreso en el denominador ```gasto_total/(ingreso_mensual + linea_credito)```.
 - rango_ahorro : Truncaba los valores negativos a cero con ```.clip(lower=0)``` cuando el gasto superaba al ingreso, colapsando al 52.1% de la población a 0.0.
 
-### Variables crudas
-Estas variables serán enviadas por el equipo de backend
+### Variables crudas y procesadas
+Estas variables serán enviadas por el equipo de backend y las que seran procesadas mediante un script .py para el modelo
 
+### Variables
+
+```python
+{
+  "edad": 25,                           # int (Entero)
+  "sexo": "f",                          # string ('f' o 'm')
+  "estado_civil": "soltero",            # string ('soltero', 'casado', 'divorciado', etc.)
+  "numero_hijos": 0,                    # int (Entero >= 0)
+  "empleo_formal": 1,                   # int (Binario: 1 = Formal, 0 = Informal)
+  "ingreso_mensual": 20000.0,           # float (Decimal en S/.)
+  "linea_credito": 10000.0,             # float (Decimal en S/.)
+  "ahorro_actual": 5000.0,              # float (Decimal en S/.)
+  "transacciones": [                    # array / list (Lista de objetos transacción)
+    {
+      "nombre_comercio": "Plaza Vea",   # string (Nombre del establecimiento)
+      "monto_transaccion": 150.0,       # float (Decimal > 0 en S/.)
+      "medio_pago": "debito"            # string ('debito', 'credito', 'efectivo', 'transferencia')
+    },
+    {
+      "nombre_comercio": "Uber",        # string
+      "monto_transaccion": 35.0,        # float
+      "medio_pago": "credito"           # string
+    }
+  ]
+}
 ```
-    "edad": 25,                       # int: Edad del cliente
-    "sexo": "f",                      # str: 'f' o 'm'
-    "estado_civil": "soltero",        # str: 'soltero', 'casado', 'divorciado', etc.
-    "numero_hijos": 0,                # int: Cantidad de hijos
-    "empleo_formal": 1,               # int (binario): 1 = Formal, 0 = Informal
-    "ingreso_mensual": 20000.0,       # float: Ingreso total mensual en Soles (S/.)
-    "linea_credito": 10000.0,         # float: Línea de crédito total aprobada (S/.)
-    "gasto_total": 8000.0,            # float: Gasto total acumulado en el mes (S/.)
-    "credito_utilizado": 2500.0,      # float: Deuda actual consumida en la tarjeta (S/.)
-    "monto_promedio_ahorro": 5000.0   # float: Fondo guardado promediado en cuenta de ahorros (S/.)
+
+
+### Variables procesadas
+
+```python
+{
+  "edad": 25,                           # int
+  "sexo": "f",                          # string
+  "estado_civil": "soltero",            # string
+  "numero_hijos": 0,                    # int
+  "empleo_formal": 1,                   # int (Binario: 1 = Formal, 0 = Informal)
+  "ingreso_mensual": 20000.0,           # float
+  "linea_credito": 10000.0,             # float
+  "gasto_total": 185.0,                 # float (Calculado: 150.0 debito + 35.0 credito)
+  "credito_utilizado": 35.0,            # float (Calculado: Suma solo compras a crédito)
+  "monto_promedio_ahorro": 24850.0,     # float (Calculado: 5000.0 ahorro previo + 19850.0 sobrante real)
+  "ratio_gasto_ingreso": 0.0093,        # float (Calculado: 185.0 / 20000.0)
+  "pct_credito_ocupado": 0.0035,        # float (Calculado: 35.0 / 10000.0)
+  "tasa_ahorro_real": 1.2425            # float (Calculado: 24850.0 / 20000.0)
+}
 ```
 
 
