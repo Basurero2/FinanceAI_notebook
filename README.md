@@ -72,7 +72,7 @@
 - credito_utilizado (FLOAT) : Recuperada de ```users.csv```. Representa la deuda activa real en la tarjeta o línea de crédito.
 - monto_promedio_ahorro (FLOAT) : Recuperada de ```users.csv```. Representa el saldo real acumulado en las cuentas de ahorro del cliente.
 - ratio_gasto_ingreso (FLOAT) : Ratio nuevo de flujo. Se calcula como ```gasto_total/ingreso_mensual```. Reemplazó al antiguo nivel_endeudamiento
-- pct_credito_ocupado (FLOAT) : Ratio nuevo de apalancamiento. Se calcula como ```credito_utilizado/textlinea_credito```. Mide qué tan saturada está la tarjeta de crédito.
+- pct_credito_ocupado (FLOAT) : Ratio nuevo de apalancamiento. Se calcula como ```credito_utilizado/linea_credito```. Mide qué tan saturada está la tarjeta de crédito.
 - tasa_ahorro_real (FLOAT) :Ratio nuevo de reserva. Se calcula como ```monto_promedio_ahorro/ingreso_mensual```. Reemplazó al antiguo rango_ahorro
 
 **variables eliminadas**
