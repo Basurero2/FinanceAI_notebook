@@ -104,14 +104,16 @@ Estas variables serán enviadas por el equipo de backend y las que seran procesa
   "ahorro_actual": 5000.0,              # float (Decimal en S/.)
   "transacciones": [                    # array / list (Lista de objetos transacción)
     {
-      "nombre_comercio": "Plaza Vea",   # string (Nombre del establecimiento)
-      "monto_transaccion": 150.0,       # float (Decimal > 0 en S/.)
-      "medio_pago": "debito"            # string ('debito', 'credito', 'efectivo', 'transferencia')
+      "nombre_comercio": "Plaza Vea",             # string (Nombre del establecimiento)
+      "monto_transaccion": 150.0,                 # float (Decimal > 0 en S/.)
+      "medio_pago": "debito"                      # string ('debito', 'credito', 'efectivo', 'transferencia')
+      "fecha_transaccion": "2026-08-09T14:30:00"  # string (ISO 8601: YYYY-MM-DDTHH:MM:SS)
     },
     {
-      "nombre_comercio": "Uber",        # string
-      "monto_transaccion": 35.0,        # float
-      "medio_pago": "credito"           # string
+      "nombre_comercio": "Uber",                    # string
+      "monto_transaccion": 35.0,                    # float
+      "medio_pago": "credito"                       # string
+      "fecha_transaccion": "2026-08-09T18:15:00"    # string  esta variable se podria discutir, solo se usaria para cuando el modelo                                                                                                      se usa a mitad de mes por ejemplo para hallar el ahorro actual
     }
   ]
 }
