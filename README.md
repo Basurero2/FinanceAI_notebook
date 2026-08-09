@@ -104,7 +104,7 @@ Estas variables serán enviadas por el equipo de backend y las que seran procesa
   "ahorro_actual": 5000.0,              # float (Decimal en S/.)
   "transacciones": [                    # array / list (Lista de objetos transacción)
     {
-      "nombre_comercio": "Plaza Vea",             # string (Nombre del establecimiento)
+      "nombre_comercio": "Plaza Vea",             # string (Nombre del establecimiento) esto es para el modelo A (NLP)
       "monto_transaccion": 150.0,                 # float (Decimal > 0 en S/.)
       "medio_pago": "debito"                      # string ('debito', 'credito', 'efectivo', 'transferencia')
       "fecha_transaccion": "2026-08-09T14:30:00"  # string (ISO 8601: YYYY-MM-DDTHH:MM:SS)
