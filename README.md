@@ -75,7 +75,7 @@
 Esta variable es acumulativa y se calcula de la siguiente manera
 - al inicio del registro de un usuario se le pedirá cuanto de ahorro tiene inicialmente
 - Cuando se use el perfil financiero (modelo)
-1. A fin de mes : el ahorro del mes actual se hallara : ingreso_mensual - gasto_total, donde el gasto total es la suma de dinero real (debito o efectivo o transferencia) + credito utilizado y luego se promediara con los ahorros anteriores : (ahorro_1 + ahorro_2 + ahorro_3_actual)/3 y ese resultado sera el monto_promedio_ahorro
+1. A fin de mes : el ahorro del mes actual se hallara : ingreso_mensual - gasto_total, donde el gasto total es la suma de dinero real (debito o efectivo o transferencia) + credito utilizado y luego se promediara con los ahorros anteriores : (ahorro_0 + ahorro_1 + ahorro_2 + ahorro_3_actual)/3 y ese resultado sera el monto_promedio_ahorro
 2. En periodos en el mes por ejemplo en la semana 2 : aqui se usa lo mismo pero a diferencia que solo se usara el dinero real para hallar el ahorro actual porque vamos a considerar que el usuario paga su deuda de uso de credito cada fin de mes por lo que en estas periodos (<30 dias) esa dinero aun no se desembolsa, y luego se promedia con los ahorros anteriores (meses) obteniendo monto_promedio_ahorro
 ```
 
