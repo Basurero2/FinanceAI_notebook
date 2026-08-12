@@ -2,11 +2,19 @@
 # Propuesta para el equipo Data Scientist - Modelo B (Perfil financiero)
 
 
-## Resolución
+> **Proyecto:** FinanceAI  
+> **Fecha:** 10 de agosto de 2026  
+> **Autor:** Juan Carlos Mamani Apaza (Equipo de Data Science)  
+
+---
+
+## 📢 Resolución de Arquitectura y Variables
 
 En reunión con el equipo de Data Science se concluyó que se volverán a revisar las variables y la data de clientes para que, como máximo, se incluya una (1) sola variable adicional. Esto se debe a que por limitaciones de tiempo e implementación no es factible hacer cambios mayores, ya que existe un avance subido por parte del backend y realizar modificaciones notables afectaría el progreso actual.
 
 Además, el enfoque sobre cómo el usuario utiliza el modelo es diferente al planteado inicialmente: el usuario cargará toda su data completa para el análisis en lugar de alimentarla de manera evolutiva o continua. Por lo tanto, las variables propuestas anteriormente no encajan con la arquitectura y la visión del proyecto.
+
+---
 
 
 ## Comparativa de dataset clientes actual y propuesto
