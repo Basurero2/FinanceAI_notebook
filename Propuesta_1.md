@@ -1,6 +1,14 @@
 
 # Propuesta para el equipo Data Scientist - Modelo B (Perfil financiero)
 
+
+# Resolución
+
+En reunión con el equipo de Data Science se concluyó que se volverán a revisar las variables y la data de clientes para que, como máximo, se incluya una (1) sola variable adicional. Esto se debe a que por limitaciones de tiempo e implementación no es factible hacer cambios mayores, ya que existe un avance subido por parte del backend y realizar modificaciones notables afectaría el progreso actual.
+
+Además, el enfoque sobre cómo el usuario utiliza el modelo es diferente al planteado inicialmente: el usuario cargará toda su data completa para el análisis en lugar de alimentarla de manera evolutiva o continua. Por lo tanto, las variables propuestas anteriormente no encajan con la arquitectura y la visión del proyecto.
+
+
 ## Comparativa de dataset clientes actual y propuesto
 
 ### Variables
@@ -534,6 +542,13 @@ print("\n💾 Modelo exportado exitosamente como 'modelo_perfil_financiero_rf.pk
 
 
 
+
+
+
+
 ### conclusiones de estos 3 notebooks
 Se nota ligeras variaciones en los scores de cada entrenamiento esto es debido a la combinacion aleatoria en los hiperparametros y la distribución que realiza K-means que como se muestra en seccion dataset de cada notebook varia ligeramente
 - el notebook 2 tuvo un mejor modelo donde su prueba obtuvo un score de 59%
+
+
+
