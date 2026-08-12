@@ -189,7 +189,7 @@ Estas variables serán enviadas por el equipo de backend y las que seran procesa
 Haciendo una prueba para comprobar que el modelo actual de perfil financiero presenta Data Leakage o Overfitting MEMORÍSTICO debido a una sesgo de categorización sintética por reglas estáticas (IF/ELSE) en el dataset clientes
 
 ### Causas y evidencias
-- mas información en el archivo [auditoria_entrenamiento_notebook.md](auditoria_entrenamiento_notebook.md")
+- mas información en el archivo [auditoria_entrenamiento_notebook.md](../auditoria_entrenamiento_notebook.md")
 
 #### modelo actual
 
