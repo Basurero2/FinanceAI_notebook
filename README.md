@@ -15,8 +15,8 @@ Aquí una breve descripción de lo implementado:
 
 | Versión / Propuesta | Descripción corta | Enlace al documento | Estado |
 | :--- | :--- | :--- | :--- |
-| **Propuesta v1** | Estructura inicial de variables crudas y flujo temporal. | [Ver Propuesta V1](./propuestas/propuesta_variables_modelo_v1.md) | ❌ Descartada (Ajustada por tiempos de backend) |
-| **Propuesta v2** | Alineación del contrato de datos y cálculo on-demand. | [Ver Propuesta V2](./propuestas/propuesta_variables_modelo_v2.md) | ⚠️ En revisión / Iterada |
+| **Propuesta variables** | Estructura inicial de variables crudas y flujo temporal. | [Ver Propuesta V1](./propuestas/propuesta_variables_modelo_v1.md) | ❌ Descartada (Ajustada por tiempos de backend) |
+| **Propuesta documentación** | agregar comentarios sobre los modelos. | [Ver Propuesta](./propuestas/propuesta_variables_modelo_v2.md) | ⚠️ En revisión / Iterada |
 
 ---
 
