@@ -22,7 +22,7 @@ Se cambio el dataset transactions.csv con la original que no contiene los valore
 
 ### Que se cambio
 
-Se agrego la librería `warnings` en sección "Importación de librerías"
+Se agrego la librería `warnings` en sección "Importación de librerías" para ocultar las advertencias en todo el notebook
 
 <br>
 <br>
