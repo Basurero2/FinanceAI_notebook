@@ -18,4 +18,4 @@
 ---
 
 ## 📂 Enlaces Útiles
-* [Ver Notebook Limpio del Modelo](./notebooks documentado/hackathon_dataset_avanzado_documentado_2.ipynb)
+* [Ver Notebook Limpio del Modelo](./notebook documentado/hackathon_dataset_avanzado_documentado_2.ipynb)
