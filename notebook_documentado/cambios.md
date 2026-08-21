@@ -82,6 +82,10 @@ sns.scatterplot(data=df_final,x='ingreso_mensual',y='rango_ahorro')
 ```
 
 
+<br>
+<br>
+
+
 ## Shap comentarios
 
 <img width="784" height="653" alt="image" src="https://github.com/user-attachments/assets/24bda2e3-3f0b-4917-8326-f2ae1bcf5437" />
