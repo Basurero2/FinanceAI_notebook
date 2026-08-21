@@ -98,8 +98,14 @@ Se ve que las variables `credito_utilizado` y `monto_promedio_ahorro` no existen
 <br>
 
 
-## Comentarios de modelos
+## Comentarios de los modelos
 
-Se añadio algunos conclusiones de los resultados y causas de dichos scores en las pruebas respecto al puntaje en el entrenamiento y test del modelo perfil_financiero
-(falta)
+Se agregó `9.1 Análisis visual de fronteras de decisión y justificación del rendimiento`
+
+<img width="1484" height="584" alt="image" src="https://github.com/user-attachments/assets/1dc1bfeb-3388-4dcd-b5f9-f32a7b8b7131" />
+
+Como tambien se añadio algunos conclusiones de los resultados y causas de dichos scores en las pruebas respecto al puntaje en el entrenamiento y test del modelo perfil_financiero y transacciones
+
+
+
 
