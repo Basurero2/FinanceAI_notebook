@@ -2,7 +2,7 @@
 
 
 
-## data transacctions.csv
+## data transactions.csv
 
 <img width="636" height="149" alt="image" src="https://github.com/user-attachments/assets/b944c92c-5dd7-470f-bd24-b2c068a679ac" />
 
