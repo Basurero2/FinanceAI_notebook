@@ -10,6 +10,12 @@
 
 Se cambio el dataset transactions.csv con la original que no contiene los valores `Vivienda` y `Educación`
 
+
+<br>
+<br>
+
+
+
 ## Advertencias
 
 <img width="938" height="415" alt="image" src="https://github.com/user-attachments/assets/c6aa1bf4-89ec-471c-b7ee-5983057f92ce" />
