@@ -28,7 +28,7 @@ Se agrego la librería `warnings` en sección "Importación de librerías" para 
 <br>
 
 
-## segunda matriz de correlación (revisar detalladamente)
+## Segunda matriz de correlación (revisar detalladamente)
 
 ### Matriz de correlación de variables numéricas
 
@@ -69,7 +69,7 @@ corr = df_final[columnas_numericas].corr(method="spearman")
 
 
 
-## variable porcentaje_ahorro
+## Variable porcentaje_ahorro
 
 <img width="650" height="424" alt="image" src="https://github.com/user-attachments/assets/bbaf9ee3-d7e5-4e37-b78e-231c5756ecf7" />
 
